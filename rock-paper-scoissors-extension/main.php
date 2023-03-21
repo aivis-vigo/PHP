@@ -3,27 +3,30 @@
 $elements = [
     'rock',
     'paper',
-    'scissors'
+    'scissors',
+    'lizard',
+    'spock'
 ];
+
+$winningElements = [
+    'rock' => ['scissors', 'lizard'],
+    'paper' => ['rock', 'spock'],
+    'scissors' => ['paper', 'lizard'],
+    'lizard' =>  ['paper', 'spock'],
+    'spock' =>  ['scissors', 'rock']
+];
+
 $computerChoice = $elements[array_rand($elements)];
 
-$playerChoice = strtolower(readline('Your Choice : '));
+$playerChoice = strtolower(readline('Your Choice: '));
 
-$message = "PC: " . ucfirst($computerChoice) . ' vs Player: ' . ucfirst($playerChoice) . ". Draw!" . PHP_EOL;
+$message = "PC: " . ucfirst($computerChoice) . ' vs Player: ' . ucfirst($playerChoice);
 
 if ($computerChoice == $playerChoice)
 {
-    echo $message;
-} elseif ($computerChoice == $elements[0] && $playerChoice == $elements[1])
-{
-    echo $message;
-} elseif ($computerChoice == $elements[1] && $playerChoice == $elements[2])
-{
-    echo $message;
-} elseif ($computerChoice == $elements[2] && $playerChoice == $elements[0])
-{
-    echo $message;
+    echo $message . '. Draw!';
+} elseif (in_array($computerChoice, $winningElements[$playerChoice])) {
+    echo $message . '. Player Won!';
 } else {
-    echo "PC: " . ucfirst($computerChoice) . ' vs Player: ' . ucfirst($playerChoice) . PHP_EOL;
-    echo "PC Won!";
+    echo $message . '. PC Won!';
 }
