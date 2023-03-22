@@ -27,8 +27,14 @@ while ($guesses < $maxGuesses)
 
     if ($index > -1)
     {
-        $answer[$index] = $userInput;
-        $letters[$index] = "-";
+        $multiple = str_split($userInput);
+        $result = array_intersect($letters, $multiple);
+
+        foreach ($result as $key=>$val)
+        {
+            $answer[$key] = $userInput;
+            $letters[$key] = "-";
+        }
 
         if ($gameWord == join("", $answer))
         {
