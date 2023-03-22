@@ -9,7 +9,6 @@ $choice = array_rand($words);
 $gameWord = $words[$choice];
 $letters = str_split($gameWord);
 $answer = str_split(str_repeat("_", strlen($gameWord)));
-var_dump($gameWord);
 
 $guesses = 0;
 $maxGuesses = 3;
