@@ -15,6 +15,7 @@ $maxGuesses = 3;
 
 while ($guesses < $maxGuesses)
 {
+    echo PHP_EOL;
     echo "Your word: ";
     echo join("", $answer);
 
