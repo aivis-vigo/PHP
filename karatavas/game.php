@@ -3,7 +3,7 @@
 echo "Welcome to Word Guessing Game!". PHP_EOL;
 echo "------------------------------";
 
-$words = [/**'balloon', 'weapon', 'church', 'market', 'spring',*/ 'banana'];
+$words = ['balloon', 'weapon', 'church', 'market', 'spring', 'banana'];
 $choice = array_rand($words);
 
 $gameWord = $words[$choice];
